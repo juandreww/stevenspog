@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/registration', [AdminController::class, 'registration']);
+Route::post('/submit', [AdminController::class, 'submit']);
