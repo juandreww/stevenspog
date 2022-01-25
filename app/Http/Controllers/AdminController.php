@@ -17,6 +17,8 @@ class AdminController extends Controller
             'usia' => 'required|numeric'
         ]);
 
+        
+
         return view('admin.submit',['data' => $request]);
     }
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Malas Ngoding - Tutorial Laravel #18 : Membuat Form Validasi Pada Laravel</title>
+    <title>Tutorial</title>
     
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -15,7 +15,7 @@
             <div class="col-lg-6">
                 <div class="card mt-5">
                     <div class="card-body">
-                        <h3>www.malasngoding.com</h3>
+                        <h3>Thank You</h3>
                         <h3 class="my-4">Data Yang Di Input : </h3>
  
                         <table class="table table-bordered table-striped">
