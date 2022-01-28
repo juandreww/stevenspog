@@ -117,7 +117,7 @@
                           <div class="row">
                             <div class="col" style="width: 50%">
                               <label for="purpose">Tujuan Berkunjung</label><br>
-                              <input class="form-control" type="text" name="purpose" value="{{ old('purpose') }}">
+                              <input class="form-control" type="text" name="purpose" value="{{ $user->Name }}">
                             </div>
                           </div>
                           <br>
