@@ -11,9 +11,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    
 </head>
 <body>
-  <div class="container">
+  <div class="container" background-image: var(--bs-gradient);>
       <div class="row justify-content-center">
           <div class="col-lg-6">
               <div class="card mt-5">
@@ -38,8 +39,8 @@
                           {{ csrf_field() }}
                           <table style="width: 100%">
                           <div class="form-group" style="width: 100%">
-                              <label for="nama">Nama Lengkap</label>
-                              <input class="form-control" type="text" name="nama" value="{{ old('nama') }}">
+                              <label for="name">Name</label>
+                              <input class="form-control" type="text" name="name" value="{{ old('name') }}">
                           </div>
                           {{-- <label>Date of Birth</label><br>
                           <div class="form-row align-items-center" style="width: 100%">
@@ -92,32 +93,31 @@
                               </select>
                             </div>
                           </div> --}}
-                          <div class="row">
-                            <div class="col" style="width: 100%">
-                              <label for="pekerjaan">Pekerjaan</label><br>
-                              <input class="form-control" type="text" name="pekerjaan" value="{{ old('pekerjaan') }}">
+                          <div class="form-row">
+                            <div class="col-2" style="width: 20%">
+                              <label for="age">Age</label><br>
+                              <input class="form-control" type="text" name="age" value="{{ old('age') }}">
                             </div>
-                            <div class="col" style="width: 50%">
-                              <label for="usia">Usia</label><br>
-                              <input class="form-control" type="text" name="usia" value="{{ old('usia') }}">
-                            </div>
-                          </div>
-                          <br>
-                          <div class="row">
-                            <div class="col" style="width: 100%">
+                            <div class="col-6" style="width: 40%">
                               <label for="email">Email</label><br>
                               <input class="form-control" type="text" name="email" value="{{ old('email') }}">
                             </div>
-                            <div class="col" style="width: 50%">
-                              <label for="phonenumber">Phone Number</label><br>
+                            <div class="col" style="width: 40%">
+                              <label for="phonenumber">Contact No.</label><br>
                               <input class="form-control" type="text" name="phonenumber" value="{{ old('phonenumber') }}">
                             </div>
                           </div>
                           <br>
-                          <div class="row">
-                            <div class="col" style="width: 50%">
+                          <div class="form-row">
+                            <div class="col-6" style="width: 100%">
+                              <label for="address">Address</label><br>
+                              <textarea class="form-control" name="address" value="{{ old('address') }}" rows="3">
+                              </textarea>
+                            </div>
+                            <div class="col-6" style="width: 100%">
                               <label for="purpose">Tujuan Berkunjung</label><br>
-                              <input class="form-control" type="text" name="purpose" value="{{ $user->Name }}">
+                              <textarea class="form-control" name="purpose" value="{{ old('purpose') }}" rows="3">
+                              </textarea>
                             </div>
                           </div>
                           <br>
