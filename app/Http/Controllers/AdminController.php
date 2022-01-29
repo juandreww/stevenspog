@@ -16,9 +16,15 @@ class AdminController extends Controller
     public function submit(Request $request) {
         $this->validate($request, [
             'name' => 'required|min:3',
-            'age' => 'required|numeric'
+            'age' => 'required|numeric',
+            'email' => 'required',
+            'phonenumber' => 'required',
+            'address' => 'required',
+            'purpose' => 'required',
+            'date' => 'required',
+            'time' => 'required'
         ]);
-        
+
         // DB::INSERT("INSERT INTO trnregistration2 (Oid, Name, Age) VALUES (UUID(), ?, ?)", [$request->nama, 23]);
 
         return view('admin.submit',['data' => $request]);

@@ -121,25 +121,26 @@
                             </div>
                           </div>
                           <br>
-                          <div class="form-row align-items-center" style="width: 50%">
-                            <div class="col-auto my-1">
+                          <div class="form-row">
+                            <div class="col-9" style="width: 100%">
                               <label for="date">Date</label><br>
-                              <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Date</label>
-                              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                <option selected>Date</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                              <select class="custom-select" name="date">
+                                <option selected>Available Date</option>
+                                <option value="1">Monday, 31 January 2022</option>
+                                <option value="2">Wednesday, 02 February 2022</option>
+                                <option value="3">Friday, 04 February 2022</option>
                               </select>
                             </div>
-                            <div class="col-auto my-1">
+                            <div class="col-3" style="width: 100%">
                               <label for="time">Time</label><br>
-                              <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Time</label>
-                              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                <option selected>Time</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                              <select class="custom-select" name="time">
+                                <option selected></option>
+                                <option value="1">17.00</option>
+                                <option value="2">17.30</option>
+                                <option value="3">18.00</option>
+                                <option value="4">18.30</option>
+                                <option value="5">19.00</option>
+                                <option value="6">19.30</option>
                               </select>
                             </div>
                           </div>
