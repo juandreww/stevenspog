@@ -13,7 +13,7 @@
 		<div class="card mt-4">
 			<div class="card-body"> 
 				<h3>List</h3>
- 
+				<br>
 				<p>Cari Record Pasien :</p>
  
 				<div class="form-group">
@@ -21,6 +21,8 @@
 				</div>
 				<form action="/list" method="GET" class="form-inline">
 					<input class="form-control" type="text" name="find" placeholder="Cari Record Pasien .." value="{{ old('find') }}">
+					&nbsp;&nbsp;
+					<input class="form-control" type="date" id="finddate" name="finddate">
 					<input class="btn btn-primary ml-3" type="submit" value="CARI">
 				</form>
  

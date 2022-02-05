@@ -13,6 +13,21 @@ class AdminController extends Controller
         return view('admin.registration');
     }
 
+    public function formadddate(Request $request) {
+        return view('admin.adddate');
+    }
+
+    public function adddate(Request $request) {
+        $this->validate($request, [
+            'date' => 'required'
+        ]);
+
+        DB::INSERT("INSERT INTO mstdateregister (Oid, Date) 
+                    VALUES (UUID(), ?)", [$request->date]);
+
+        return redirect('/listdate');
+    }
+
     public function submit(Request $request) {
         $this->validate($request, [
             'name' => 'required|min:3',
@@ -69,11 +84,32 @@ class AdminController extends Controller
     
     public function list(Request $request) {
         $where = "";
-        if ($request->has('find')) $where = " WHERE '{$request->query('find')}' in (Name, Age, Date, Email, Phone, Address, Note, Time) ";
-        $query = "SELECT * FROM trnregistration2 {$where} ORDER BY Name";
+        if ($request->has('find')) $where = " WHERE (
+            Name like '%{$request->query('find')}%' OR
+            Age like '%{$request->query('find')}%' OR
+            Date like '%{$request->query('find')}%' OR
+            Email like '%{$request->query('find')}%' OR
+            Phone like '%{$request->query('find')}%' OR
+            Address like '%{$request->query('find')}%' OR
+            Note like '%{$request->query('find')}%' OR
+            Time like '%{$request->query('find')}%'
+        ) ";
+
+        if ($request->has('finddate')) $where = " WHERE (
+            Date like '%{$request->query('finddate')}%'
+        ) ";
+
+        $query = "SELECT * FROM trnregistration2 {$where} ORDER BY Date DESC,Name";
         $data = DB::SELECT($query);
         
         return view('admin.list',['data' => $data]);
+    }
+
+    public function listdate(Request $request) {
+        $query = "SELECT * FROM mstdateregister ORDER BY Date ASC";
+        $data = DB::SELECT($query);
+        
+        return view('admin.listdate',['data' => $data]);
     }
 
     public function edit($id) {
@@ -137,5 +173,11 @@ class AdminController extends Controller
         DB::table('trnregistration2')->where('Oid', $id)->delete();
 
         return redirect('/list');
+    }
+
+    public function deletedate($id) {
+        DB::table('mstdateregister')->where('Oid', $id)->delete();
+
+        return redirect('/listdate');
     }
 }
