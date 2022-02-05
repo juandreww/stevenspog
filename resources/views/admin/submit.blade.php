@@ -15,25 +15,46 @@
             <div class="col-lg-6">
                 <div class="card mt-5">
                     <div class="card-body">
-                        <h3>Thank You</h3>
-                        <h3 class="my-4">Data Yang Di Input : </h3>
- 
+                        <h4>Thank You</h4>
+                        <h4 class="my-4">Data Yang Di Input : </h4>
                         <table class="table table-bordered table-striped">
                             <tr>
-                                <td style="width:150px">Nama</td>
-                                <td>{{ $data->nama }}</td>
+                                <td style="width:150px">Name</td>
+                                <td>{{ $data->name }}</td>
                             </tr>
                             <tr>
-                                <td>Pekerjaan</td>
-                                <td>{{ $data->pekerjaan }}</td>
+                                <td>Age</td>
+                                <td>{{ $data->age }}</td>
                             </tr>
                             <tr>
-                                <td>Usia</td>
-                                <td>{{ $data->usia }}</td>
+                                <td>Email</td>
+                                <td>{{ $data->email }}</td>
+                            </tr>
+                            <tr>
+                                <td>Contact No.</td>
+                                <td>{{ $data->phonenumber }}</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td>{{ $data->address }}</td>
+                            </tr>
+                            <tr>
+                                <td>Purpose</td>
+                                <td>{{ $data->purpose }}</td>
+                            </tr>
+                            <tr>
+                                <td>Date</td>
+                                <td>{{ $data->date }}</td>
+                            </tr>
+                            <tr>
+                                <td>Time</td>
+                                <td>{{ $data->time }}</td>
                             </tr>
                         </table>
- 
-                        <a href="/input" class="btn btn-primary">Kembali</a>
+                        <h6 class="my-4">Mohon datang 30 menit lebih awal dari jam yang telah ditentukan.<br>
+                            Info lebih lanjut WA +628114324868
+                        </h6>
+                        <a href="/registration" class="btn btn-primary">Kembali</a>
                     </div>
                 </div>
             </div>
