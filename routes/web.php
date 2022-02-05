@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/registration', [AdminController::class, 'registration']);
 Route::post('/submit', [AdminController::class, 'submit']);
-Route::post('/update/{Oid}', [AdminController::class, 'update']);
+Route::post('/update', [AdminController::class, 'update']);
 Route::get('/list', [AdminController::class, 'list']);
 Route::get('/edit/{Oid}', [AdminController::class, 'edit']);
 Route::get('/delete/{Oid}',[AdminController::class, 'delete']);

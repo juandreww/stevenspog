@@ -19,8 +19,8 @@
 				<div class="form-group">
 					
 				</div>
-				<form action="/find" method="GET" class="form-inline">
-					<input class="form-control" type="text" name="cari" placeholder="Cari Record Pasien .." value="{{ old('cari') }}">
+				<form action="/list" method="GET" class="form-inline">
+					<input class="form-control" type="text" name="find" placeholder="Cari Record Pasien .." value="{{ old('find') }}">
 					<input class="btn btn-primary ml-3" type="submit" value="CARI">
 				</form>
  

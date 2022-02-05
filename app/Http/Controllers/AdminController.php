@@ -68,7 +68,9 @@ class AdminController extends Controller
     }
     
     public function list(Request $request) {
-        $query = "SELECT * FROM trnregistration2 ORDER BY Name";
+        $where = "";
+        if ($request->has('find')) $where = " WHERE '{$request->query('find')}' in (Name, Age, Date, Email, Phone, Address, Note, Time) ";
+        $query = "SELECT * FROM trnregistration2 {$where} ORDER BY Name";
         $data = DB::SELECT($query);
         
         return view('admin.list',['data' => $data]);
@@ -84,30 +86,50 @@ class AdminController extends Controller
     }
 
     public function update(Request $request) {
-        dd($request);
+        if ($request->date == 1) {
+            $date = "2022-01-31";
+            $request->date = "Monday, 31 January 2022";
+        }
+        elseif ($request->date == 2) {
+            $date = "2022-02-02";
+            $request->date = "Wednesday, 02 February 2022";
+        }
+        elseif ($request->date == 3) {
+            $date = "2022-02-04";
+            $request->date = "Friday, 04 February 2022";
+        }
+        else $date = $request->date;
 
-        $this->validate($request, [
-            'name' => 'required|min:3',
-            'age' => 'required|numeric',
-            'email' => 'required',
-            'phonenumber' => 'required',
-            'address' => 'required',
-            'purpose' => 'required',
-            'date' => 'required',
-            'time' => 'required'
-        ]);
+        if ($request->time == 1) {
+            $request->time = "17:00";
+        }
+        elseif ($request->time == 2) {
+            $request->time = "17:30";
+        }
+        elseif ($request->time == 3) {
+            $request->time = "18:00";
+        }
+        elseif ($request->time == 4) {
+            $request->time = "18:30";
+        }
+        elseif ($request->time == 5) {
+            $request->time = "19:00";
+        }
+        elseif ($request->time == 6) {
+            $request->time = "19:30";
+        }
         
-        DB::table('trnregistration2')->where('Oid',$request->Oid)->update([
+        DB::table('trnregistration2')->where('Oid',$request->oid)->update([
             'Name' => $request->name,
             'Age' => $request->age,
             'Email' => $request->email,
             'Phone' => $request->phone,
             'Address' => $request->address,
             'Note' => $request->purpose,
-            'Date' => $request->date,
+            'Date' => $date,
             'Time' => $request->time,
         ]);
-
+        
         return redirect('/list');
     }
 
