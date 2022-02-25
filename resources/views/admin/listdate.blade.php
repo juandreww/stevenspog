@@ -23,7 +23,7 @@
 				<table class="table table-bordered">
 					<tr>
 						<th style="width:60%">Date</th>
-						<th>Option</th>
+						<th>Action</th>
 					</tr>
 					@foreach($data as $p)
 					<tr>

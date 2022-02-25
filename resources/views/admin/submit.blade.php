@@ -54,6 +54,9 @@
                         <h6 class="my-4">Mohon datang 30 menit lebih awal dari jam yang telah ditentukan.<br>
                             Info lebih lanjut WA +628114324868
                         </h6>
+                        <a href="https://api.whatsapp.com/send/?phone=628114324868&text&app_absent=0">Click link ini</a>
+                        <br>
+                        <br>
                         <a href="/registration" class="btn btn-primary">Kembali</a>
                     </div>
                 </div>

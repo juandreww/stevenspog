@@ -33,11 +33,12 @@
 						<th>Name</th>
 						<th>Age</th>
 						<th>Date</th>
+						<th>Time</th>
 						<th>Email</th>
 						<th>Phone</th>
                         <th>Address</th>
                         <th>Note</th>
-                        <th>Time</th>
+						<th>Action</th>
 					</tr>
 					@foreach($data as $p)
 					<tr>
@@ -45,11 +46,11 @@
 						<td>{{ $p->Name ?: '-' }}</td>
 						<td>{{ $p->Age ?: '-' }}</td>
 						<td>{{ $p->Date ?: '-' }}</td>
+						<td>{{ $p->Time ?: '-' }}</td>
 						<td>{{ $p->Email ?: '-' }}</td>
                         <td>{{ $p->Phone ?: '-' }}</td>
                         <td>{{ $p->Address ?: '-' }}</td>
                         <td>{{ $p->Note ?: '-' }}</td>
-                        <td>{{ $p->Time ?: '-' }}</td>
 						<td>
 							<a class="btn btn-warning btn-sm" href={{$stringedit}}>Edit</a>
 							<a class="btn btn-danger btn-sm" href={{$string}}>Delete</a>

@@ -75,9 +75,12 @@
                               <label for="date">Date</label><br>
                               <select class="custom-select" name="date">
                                 <option selected>Available Date</option>
-                                <option value="1">Monday, 31 January 2022</option>
-                                <option value="2">Wednesday, 02 February 2022</option>
-                                <option value="3">Friday, 04 February 2022</option>
+                                @if (count($data) > 0) <option value="0">{{ $data[0]->Date }}</option> @endif
+                                @if (count($data) > 1) <option value="1">{{ $data[1]->Date }}</option> @endif
+                                @if (count($data) > 2) <option value="2">{{ $data[2]->Date }}</option> @endif
+                                @if (count($data) > 3) <option value="3">{{ $data[3]->Date }}</option> @endif
+                                @if (count($data) > 4) <option value="4">{{ $data[4]->Date }}</option> @endif
+                                @if (count($data) > 5) <option value="5">{{ $data[5]->Date }}</option> @endif
                               </select>
                             </div>
                             <div class="col-3" style="width: 100%">

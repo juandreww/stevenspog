@@ -10,7 +10,9 @@ use App\Models\UserRegistration;
 class AdminController extends Controller
 {
     public function registration(Request $request) {
-        return view('admin.registration');
+        $query = "SELECT dr.Oid, DATE_FORMAT(dr.Date, '%W, %d %M %Y') Date, dr.Date DateOrder FROM mstdateregister dr ORDER BY DateOrder DESC Limit 6";
+        $date = DB::SELECT($query);
+        return view('admin.registration', ['data' => $date]);
     }
 
     public function formadddate(Request $request) {
@@ -39,21 +41,15 @@ class AdminController extends Controller
             'date' => 'required',
             'time' => 'required'
         ]);
+
+        if ($request->date == "Available Date") throw new \Exception("False Date");
         
         
-        if ($request->date == 1) {
-            $date = "2022-01-31";
-            $request->date = "Monday, 31 January 2022";
-        }
-        elseif ($request->date == 2) {
-            $date = "2022-02-02";
-            $request->date = "Wednesday, 02 February 2022";
-        }
-        elseif ($request->date == 3) {
-            $date = "2022-02-04";
-            $request->date = "Friday, 04 February 2022";
-        }
-        else throw new \Exception("False Date");
+        $query = "SELECT Oid, Date
+                FROM mstdateregister ORDER BY Date DESC Limit 6";
+        $date = DB::SELECT($query);
+        $date = $date[$request->date]->Date;
+        $request->date = $date;
 
         if ($request->time == 1) {
             $request->time = "17:00";
@@ -99,42 +95,39 @@ class AdminController extends Controller
             Date like '%{$request->query('finddate')}%'
         ) ";
 
-        $query = "SELECT * FROM trnregistration2 {$where} ORDER BY Date DESC,Name";
+        $query = "SELECT * FROM trnregistration2 {$where} ORDER BY Date ASC,Name";
         $data = DB::SELECT($query);
         
         return view('admin.list',['data' => $data]);
     }
 
     public function listdate(Request $request) {
-        $query = "SELECT * FROM mstdateregister ORDER BY Date ASC";
+        $query = "SELECT Oid, DATE_FORMAT(Date, '%a, %d-%m-%Y') Date, Date DateOrder
+                FROM mstdateregister ORDER BY DateOrder ASC";
         $data = DB::SELECT($query);
         
         return view('admin.listdate',['data' => $data]);
     }
 
     public function edit($id) {
-        $query= "SELECT * FROM trnregistration2 WHERE Oid = ?";
+        $query= "SELECT tr.*, DATE_FORMAT(tr.Date, '%W, %d %M %Y') DateFormatted  FROM trnregistration2 tr WHERE tr.Oid = ?";
         $data = DB::SELECT($query, [$id]);
         $data = count($data) > 0 ? $data[0] : null;
         if (empty($data)) throw new \Exception("No Data");
 
-        return view('admin.edit',['data' => $data]);
+        $query = "SELECT dr.Oid, DATE_FORMAT(dr.Date, '%W, %d %M %Y') Date, dr.Date DateOrder FROM mstdateregister dr ORDER BY DateOrder DESC Limit 6";
+        $date = DB::SELECT($query);
+
+        return view('admin.edit',['data' => $data,
+                                'date' => $date]);
     }
 
     public function update(Request $request) {
-        if ($request->date == 1) {
-            $date = "2022-01-31";
-            $request->date = "Monday, 31 January 2022";
-        }
-        elseif ($request->date == 2) {
-            $date = "2022-02-02";
-            $request->date = "Wednesday, 02 February 2022";
-        }
-        elseif ($request->date == 3) {
-            $date = "2022-02-04";
-            $request->date = "Friday, 04 February 2022";
-        }
-        else $date = $request->date;
+        $query = "SELECT Oid, Date
+                FROM mstdateregister ORDER BY Date DESC Limit 6";
+        $date = DB::SELECT($query);
+        $date = $date[$request->date]->Date;
+        $request->date = $date;
 
         if ($request->time == 1) {
             $request->time = "17:00";
@@ -154,7 +147,13 @@ class AdminController extends Controller
         elseif ($request->time == 6) {
             $request->time = "19:30";
         }
-        
+
+        if ($request->date != -1) {
+            DB::table('trnregistration2')->where('Oid',$request->oid)->update([
+                'Date' => $request->date,
+            ]);
+        }
+
         DB::table('trnregistration2')->where('Oid',$request->oid)->update([
             'Name' => $request->name,
             'Age' => $request->age,
@@ -162,7 +161,6 @@ class AdminController extends Controller
             'Phone' => $request->phone,
             'Address' => $request->address,
             'Note' => $request->purpose,
-            'Date' => $date,
             'Time' => $request->time,
         ]);
         
