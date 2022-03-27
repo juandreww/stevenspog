@@ -48,35 +48,23 @@
                         <table class="table table-bordered table-striped">
                             <tr>
                                 <td style="width:150px">Name</td>
-                                <td>{{ $data->name }}</td>
+                                <td>{{ $data->Name }}</td>
                             </tr>
                             <tr>
-                                <td>Age</td>
-                                <td>{{ $data->age }}</td>
-                            </tr>
-                            <tr>
-                                <td>Email</td>
-                                <td>{{ $data->email }}</td>
-                            </tr>
-                            <tr>
-                                <td>Contact No.</td>
-                                <td>{{ $data->phonenumber }}</td>
-                            </tr>
-                            <tr>
-                                <td>Address</td>
-                                <td>{{ $data->address }}</td>
+                                <td>Nomor Pasien</td>
+                                <td>{{ $data->Code }}</td>
                             </tr>
                             <tr>
                                 <td>Purpose</td>
-                                <td>{{ $data->purpose }}</td>
+                                <td>{{ $data->Note }}</td>
                             </tr>
                             <tr>
                                 <td>Date</td>
-                                <td>{{ $data->date }}</td>
+                                <td>{{ $data->Date }}</td>
                             </tr>
                             <tr>
                                 <td>Time</td>
-                                <td>{{ $data->time }}</td>
+                                <td>{{ $data->Time }}</td>
                             </tr>
                         </table>
                         <h6 class="my-4">Mohon datang 30 menit lebih awal dari jam yang telah ditentukan.<br>
@@ -85,7 +73,7 @@
                         <a href="https://api.whatsapp.com/send/?phone=628114324868&text&app_absent=0">Click link ini</a>
                         <br>
                         <br>
-                        <a href="/registration" class="btn btn-primary">Kembali</a>
+                        <a href="/list" class="btn btn-primary">Kembali</a>
                     </div>
                 </div>
             </div>

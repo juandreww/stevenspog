@@ -61,13 +61,11 @@
                           <div class="form-row">
                             <div class="col-6" style="width: 100%">
                               <label for="address">Address</label><br>
-                              <textarea class="form-control" name="address" value="{{ $data->Address }}" rows="3">
-                              </textarea>
+                              <textarea class="form-control" name="address" rows="3"><?=$data->Address?></textarea>
                             </div>
                             <div class="col-6" style="width: 100%">
                               <label for="purpose">Tujuan Berkunjung</label><br>
-                              <textarea class="form-control" name="purpose" value="{{ $data->Note }}" rows="3">
-                              </textarea>
+                              <textarea class="form-control" name="purpose" rows="3"><?=$data->Note?></textarea>
                             </div>
                           </div>
                           <br>
@@ -87,7 +85,7 @@
                             <div class="col-3" style="width: 100%">
                               <label for="time">Time</label><br>
                               <select class="custom-select" name="time">
-                                <option selected>{{ $data->Time }}</option>
+                                <option selected>{{ $data->DateTime }}</option>
                                 <option value="1">17.00</option>
                                 <option value="2">17.30</option>
                                 <option value="3">18.00</option>
