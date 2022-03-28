@@ -197,7 +197,7 @@ class AdminController extends Controller
     
     public function list(Request $request) {
         $where = "";
-        if ($request->has('find')) $where = " WHERE (
+        if ($request->has('find')) $where = " AND WHERE (
             Name like '%{$request->query('find')}%' OR
             Age like '%{$request->query('find')}%' OR
             Date like '%{$request->query('find')}%' OR
@@ -208,11 +208,11 @@ class AdminController extends Controller
             Time like '%{$request->query('find')}%'
         ) ";
 
-        if ($request->has('finddate')) $where = " WHERE (
+        if ($request->has('finddate')) $where = $where . " AND WHERE (
             Date like '%{$request->query('finddate')}%'
         ) ";
 
-        $query = "SELECT * FROM trnregistration2 {$where} ORDER BY Date ASC,Name";
+        $query = "SELECT * FROM trnregistration2 WHERE Name IS NOT NULL {$where} ORDER BY Date ASC,Name";
         $data = DB::SELECT($query);
         
         return view('admin.list',['data' => $data]);

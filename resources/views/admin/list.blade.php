@@ -1,5 +1,16 @@
 <html>
 <head>
+	<style>
+		html, body {
+		  height: 100%;
+		  margin: 0;
+		}
+		
+		.full-height {
+		  height: 100%;
+		  background: yellow;
+		}
+	</style>
 	<title>List Applicants</title>
 	<!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -9,9 +20,9 @@
 </head>
 <body>
  
-	<div class="container">
-		<div class="card mt-4">
-			<div class="card-body"> 
+	<div class="container-fluid">
+		<div class="card mt-4" style="width: 100%;">
+			<div class="card-body" style="width: 100%;"> 
 				<h3>List</h3>
 				<br>
 				<p>Cari Record Pasien :</p>
@@ -27,37 +38,38 @@
 				</form>
  
 				<br/>
- 
-				<table class="table table-bordered">
-					<tr>
-						<th>Name</th>
-						<th>Age</th>
-						<th>Date</th>
-						<th>Time</th>
-						<th>Email</th>
-						<th>Phone</th>
-                        <th>Address</th>
-                        <th>Note</th>
-						<th>Action</th>
-					</tr>
-					@foreach($data as $p)
-					<tr>
-						@php $string = "/delete/" . $p->Oid; $stringedit = "/edit/" . $p->Oid; @endphp
-						<td>{{ $p->Name ?: '-' }}</td>
-						<td>{{ $p->Age ?: '-' }}</td>
-						<td>{{ $p->Date ?: '-' }}</td>
-						<td>{{ $p->Time ?: '-' }}</td>
-						<td>{{ $p->Email ?: '-' }}</td>
-                        <td>{{ $p->Phone ?: '-' }}</td>
-                        <td>{{ $p->Address ?: '-' }}</td>
-                        <td>{{ $p->Note ?: '-' }}</td>
-						<td>
-							<a class="btn btn-warning btn-sm" href={{$stringedit}}>Edit</a>
-							<a class="btn btn-danger btn-sm" href={{$string}}>Delete</a>
-						</td>
-					</tr>
-					@endforeach
-				</table>
+				<div class="table-responsive">
+					<table class="table table-bordered table-responsive">
+						<tr>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Date</th>
+							<th>Time</th>
+							<th>Email</th>
+							<th>Phone</th>
+							<th>Address</th>
+							<th>Note</th>
+							<th>Action</th>
+						</tr>
+						@foreach($data as $p)
+						<tr>
+							@php $string = "/delete/" . $p->Oid; $stringedit = "/edit/" . $p->Oid; @endphp
+							<td>{{ $p->Name ?: '-' }}</td>
+							<td>{{ $p->Age ?: '-' }}</td>
+							<td>{{ $p->Date ?: '-' }}</td>
+							<td>{{ $p->Time ?: '-' }}</td>
+							<td>{{ $p->Email ?: '-' }}</td>
+							<td>{{ $p->Phone ?: '-' }}</td>
+							<td>{{ $p->Address ?: '-' }}</td>
+							<td>{{ $p->Note ?: '-' }}</td>
+							<td>
+								<a class="btn btn-warning btn-sm" href={{$stringedit}}>Edit</a>
+								<a class="btn btn-danger btn-sm" href={{$string}}>Delete</a>
+							</td>
+						</tr>
+						@endforeach
+					</table>
+				</div>
  
 				{{-- <br/>
 				Halaman : {{ $data->currentPage() }} <br/>

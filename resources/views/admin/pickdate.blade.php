@@ -32,7 +32,7 @@
 		<header class="blog-header py-3" style="margin-bottom:-50px">
 			<div class="row flex-nowrap justify-content-between align-items-center">
 			  <div class="col-4">
-				<a class="text-muted" href="/list"><img src={{URL::asset('/img/homelogo3.png')}} class="logo" alt="Responsive image" alt="profile Pic" height="80" width="250"></a>
+				<a class="text-muted" href="/choosestatus"><img src={{URL::asset('/img/homelogo3.png')}} class="logo" alt="Responsive image" alt="profile Pic" height="80" width="250"></a>
 			  </div>
 			</div>
 		</header>
