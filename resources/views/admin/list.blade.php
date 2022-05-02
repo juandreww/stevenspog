@@ -5,7 +5,7 @@
 		  height: 100%;
 		  margin: 0;
 		}
-		
+
 		.full-height {
 		  height: 100%;
 		  background: yellow;
@@ -19,16 +19,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 </head>
 <body>
- 
+
 	<div class="container-fluid">
 		<div class="card mt-4" style="width: 100%;">
-			<div class="card-body" style="width: 100%;"> 
+			<div class="card-body" style="width: 100%;">
 				<h3>List</h3>
 				<br>
 				<p>Cari Record Pasien :</p>
- 
+
 				<div class="form-group">
-					
+
 				</div>
 				<form action="/list" method="GET" class="form-inline">
 					<input class="form-control" type="text" name="find" placeholder="Cari Record Pasien .." value="{{ old('find') }}">
@@ -36,7 +36,7 @@
 					<input class="form-control" type="date" id="finddate" name="finddate">
 					<input class="btn btn-primary ml-3" type="submit" value="CARI">
 				</form>
- 
+
 				<br/>
 				<div class="table-responsive">
 					<table class="table table-bordered table-responsive">
@@ -70,18 +70,18 @@
 						@endforeach
 					</table>
 				</div>
- 
+
 				{{-- <br/>
 				Halaman : {{ $data->currentPage() }} <br/>
 				Jumlah Data : {{ $data->total() }} <br/>
 				Data Per Halaman : {{ $data->perPage() }} <br/>
 				<br/> --}}
- 
+
 				{{-- {{ $data->links() }} --}}
 			</div>
 		</div>
 	</div>
- 
- 
+
+
 </body>
 </html>
